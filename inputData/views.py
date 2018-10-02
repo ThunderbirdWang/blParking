@@ -1,16 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from inputData.models import ownerInfo
 
 # Create your views here.
 def index(request):
-    return render(request,'home.html')
+    return HttpResponse('欢迎光临')
 
-def add(request):
-    a=request.GET['a']
-    b=request.GET['b']
-    c=int(a)+int(b)
-    return HttpResponse(str(c))
+def home(request):
+    testList=map(str,range(100))
+    return render(request,'home.html',{'string':testList})
 
-def add2(request,a,b):
-    c=int(a)+int(b)
-    return HttpResponse(str(c))
+def cmdt(request):
+    return render(request,'commitData.html')
+
+def cmtOk(request):
+    roomNo=request.GET['roomNo']
+    phoneNo=request.GET['phoneNo']
+    ownerInfo.objects.get_or_create(roomNo=roomNo,phoneNo=phoneNo)
+    return HttpResponse('提交成功,你提交的房号是'+roomNo+',你提交的手机号是'+phoneNo)

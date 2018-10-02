@@ -20,6 +20,7 @@ from inputData import views as inputDataViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',inputDataViews.index),
-    path('add/',inputDataViews.add,name='add'),
-    path('add2/<int:a>/<int:b>/',inputDataViews.add2,name='add2'),
+    path('home/',inputDataViews.home,name='home'),
+    path('commitDatas/',inputDataViews.cmdt),
+    path('cmtOk/',inputDataViews.cmtOk),
 ]
