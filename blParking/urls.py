@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from inputData import views as inputDataViews
+from login import views as loginViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +24,5 @@ urlpatterns = [
     path('home/',inputDataViews.home,name='home'),
     path('commitDatas/',inputDataViews.cmdt),
     path('cmtOk/',inputDataViews.cmtOk),
+    path('login/',loginViews.login),
 ]
